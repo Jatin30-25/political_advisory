@@ -11,12 +11,13 @@ void main() {
     expect(find.text('Booths mapped'), findsOneWidget);
   });
 
-  testWidgets('navigation opens campaigns placeholder', (tester) async {
+  testWidgets('navigation opens campaign management', (tester) async {
     await tester.pumpWidget(const PoliticalAdvisoryApp());
 
     await tester.tap(find.text('Campaigns').first);
     await tester.pumpAndSettle();
 
-    expect(find.text('This section is scaffolded in the navigation.'), findsOneWidget);
+    expect(find.text('Campaign management'), findsOneWidget);
+    expect(find.text('New campaign'), findsOneWidget);
   });
 }
