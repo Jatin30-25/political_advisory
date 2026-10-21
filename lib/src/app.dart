@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'campaigns_page.dart';
 import 'dashboard_page.dart';
 import 'placeholder_page.dart';
 import 'theme.dart';
@@ -43,10 +44,12 @@ class _DashboardShellState extends State<DashboardShell> {
     final wide = MediaQuery.sizeOf(context).width >= 820;
     final page = _selectedIndex == 0
         ? const DashboardPage()
-        : PlaceholderPage(
-            title: _items[_selectedIndex].label,
-            icon: _items[_selectedIndex].icon,
-          );
+        : _selectedIndex == 1
+            ? const CampaignsPage()
+            : PlaceholderPage(
+                title: _items[_selectedIndex].label,
+                icon: _items[_selectedIndex].icon,
+              );
 
     return Scaffold(
       appBar: AppBar(
